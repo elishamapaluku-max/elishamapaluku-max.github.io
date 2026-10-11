@@ -122,7 +122,7 @@ footer{text-align:center;color:var(--dim);font-size:.85rem;padding-top:1rem}
       <div class="box card">
         <div class="avatar">
           <span aria-hidden="true">EP</span>
-          <img id="photo" src="profile.jpg" alt="Photo of Elishama Paluku" width="120" height="120">
+          <img id="photo" src="profile.png" alt="Photo of Elishama Paluku" width="120" height="120">
         </div>
         <div class="name">Elishama Paluku</div>
         <div class="role">CS student · DevOps</div>
@@ -151,7 +151,7 @@ footer{text-align:center;color:var(--dim);font-size:.85rem;padding-top:1rem}
     <main>
       <div class="box">
         <h2>// WELCOME.TXT</h2>
-        <p>Hi, I'm Elishama. I'm a final-year Computer Science student in Nairobi who works on backend systems, DevOps and the network layer, and builds a security lab at home to learn how things break!!</p>
+        <p>Hi, I'm Elishama. I'm a final-year Computer Science student in Nairobi who works on backend systems, DevOps and the network layer, and builds a security lab at home to learn how things break.</p>
         <p>At Celebrating, a startup incubated at C4DLab, I was a DevOps engineer and full-stack developer. This page is my project log and my CV in one place. Use the terminal below if you prefer typing to scrolling.</p>
       </div>
 
@@ -172,7 +172,7 @@ footer{text-align:center;color:var(--dim);font-size:.85rem;padding-top:1rem}
           <tbody>
             <tr><th scope="row">HANDLE</th><td>Elishama Paluku (Shammah)</td></tr>
             <tr><th scope="row">LOCATION</th><td>Nairobi, Kenya</td></tr>
-            <tr><th scope="row">STATUS</th><td>BSc Computer Science, University of Nairobi, year 3</td></tr>
+            <tr><th scope="row">STATUS</th><td>BSc Computer Science, University of Nairobi, final year</td></tr>
             <tr><th scope="row">OS OF CHOICE</th><td>Arch Linux</td></tr>
             <tr><th scope="row">CURRENT MISSION</th><td>Internship in DevOps, cloud, security, networking or ML</td></tr>
           </tbody>
@@ -295,7 +295,7 @@ footer{text-align:center;color:var(--dim);font-size:.85rem;padding-top:1rem}
 
 <script>
 (function(){
-  // Photo: fall back to initials if profile.jpg is missing
+  // Photo: fall back to initials if profile.png is missing
   var photo = document.getElementById('photo');
   if (photo) photo.addEventListener('error', function(){ photo.style.display = 'none'; });
 
@@ -318,7 +318,7 @@ footer{text-align:center;color:var(--dim);font-size:.85rem;padding-top:1rem}
   var input = document.getElementById('cmd');
   var commands = {
     help: "Commands: whoami, skills, projects, experience, contact, clear",
-    whoami: "Elishama Paluku (Shammah)\nThird-year BSc Computer Science, University of Nairobi.\nDevOps engineer and full-stack developer at Celebrating (C4DLab). Based in Nairobi.",
+    whoami: "Elishama Paluku (Shammah)\nFinal-year BSc Computer Science, University of Nairobi.\nDevOps engineer and full-stack developer at Celebrating (C4DLab). Based in Nairobi.",
     skills: "Languages: C, Python, Java, Node.js, Go (learning)\nSystems: Linux (Arch, Gentoo, Red Hat), Proxmox, Kafka\nData: PostgreSQL, MongoDB\nWeb/mobile: Flutter, React, TypeScript",
     projects: "KipaAPI - open banking platform (project lead)\nCelebrating - social platform, DevOps and full-stack\nHomelab - Proxmox, Arch, Gentoo, security range in progress\nNetworked systems in C - TCP/UDP servers and hand-coded RPC\nOsteoVision AI - osteoarthritis detection\nHAVA - attendance verification design\nEkelea - social prediction platform (in progress)",
     experience: "DevOps Engineer and Full-Stack Developer, Celebrating (incubated at C4DLab), Nairobi.\nCertifications: Red Hat Linux, Red Hat Python, Cisco Cybersecurity Essentials.",
