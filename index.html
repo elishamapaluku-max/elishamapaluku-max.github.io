@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elishama Paluku – DevOps, systems and security portfolio</title>
+<meta name="description" content="Portfolio of Elishama Paluku, Computer Science student and DevOps engineer in Nairobi: projects in cloud, security, networking and machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070f; --panel:#0e0e1d; --line:#2b2b4a;
+  --green:#4dff88; --cyan:#4de8ff; --pink:#ff5ce1; --yellow:#ffe14d;
+  --text:#d6e2f2; --dim:#93a3bb;
+  --pixel:"VT323","Courier New",monospace;
+  --mono:"IBM Plex Mono","Courier New",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:.95rem;line-height:1.6;
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 1px,transparent 1px 3px)}
+a{color:var(--cyan);text-underline-offset:3px}
+a:hover{color:var(--yellow)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1rem 3rem}
+
+.stars{overflow:hidden;white-space:nowrap;color:var(--yellow);text-align:center;letter-spacing:.3em;font-size:1rem}
+.banner{text-align:center;padding:.5rem 0 1rem}
+.banner h1{font-family:var(--pixel);font-weight:400;font-size:clamp(2.6rem,9vw,4.5rem);line-height:1;margin:.3rem 0;color:var(--pink);text-shadow:0 0 12px rgba(255,92,225,.55)}
+.banner .sub{font-family:var(--pixel);font-size:1.6rem;color:var(--green);letter-spacing:.12em}
+
+nav.menu{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1rem;padding:.75rem 0;border-top:2px dashed var(--line);border-bottom:2px dashed var(--line);margin-bottom:1.5rem}
+nav.menu a{font-family:var(--pixel);font-size:1.35rem;color:var(--green);text-decoration:none;padding:0 .25rem}
+nav.menu a:hover{color:var(--yellow);background:#1a1a33}
+
+.layout{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media (min-width:52rem){.layout{grid-template-columns:16.5rem 1fr;align-items:start}}
+
+.box{background:var(--panel);border:3px double var(--cyan);padding:1rem 1.1rem;margin-bottom:1.25rem}
+.box.pink{border-color:var(--pink)}
+.box.green{border-color:var(--green)}
+.box h2,.box h3.hd{font-family:var(--pixel);font-weight:400;font-size:1.6rem;letter-spacing:.06em;margin:0 0 .6rem;color:var(--yellow)}
+.box h2 small{font-size:1rem;color:var(--dim)}
+
+.avatar{width:7.5rem;height:7.5rem;margin:0 auto .6rem;border:3px solid var(--green);display:grid;place-items:center;font-family:var(--pixel);font-size:3.6rem;color:var(--green);background:#06180d;text-shadow:0 0 10px var(--green)}
+.avatar{position:relative;overflow:hidden}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.card{text-align:center}
+.card .name{font-family:var(--pixel);font-size:1.7rem;color:var(--text);line-height:1.1}
+.card .role{color:var(--dim);margin:.15rem 0 .5rem}
+.online{display:inline-flex;align-items:center;gap:.5rem;color:var(--green);font-weight:600;font-size:.85rem}
+.dot{width:.65rem;height:.65rem;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+
+.stack dt{color:var(--pink);font-weight:600;margin-top:.5rem}
+.stack dd{margin:0;color:var(--text)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{border:1px solid var(--green);color:var(--green);padding:.05rem .5rem;font-size:.8rem}
+
+.file{color:var(--green);font-family:var(--pixel);font-size:1.5rem;margin:0 0 .5rem}
+p{margin:0 0 .8rem;max-width:44rem}
+
+.feed{list-style:none;margin:0;padding:0}
+.feed li{display:flex;gap:.75rem;align-items:baseline;padding:.4rem 0;border-bottom:1px dotted var(--line)}
+.feed li:last-child{border:0}
+.badge{flex:none;min-width:5.2rem;text-align:center;font-size:.72rem;font-weight:600;padding:.05rem .4rem;border:1px solid var(--pink);color:var(--pink)}
+.badge.proj{border-color:var(--cyan);color:var(--cyan)}
+.badge.work{border-color:var(--green);color:var(--green)}
+.feed .meta{display:block;color:var(--dim);font-size:.82rem}
+
+table.about{border-collapse:collapse;width:100%}
+table.about th,table.about td{text-align:left;padding:.35rem .6rem;border:1px solid var(--line);vertical-align:top}
+table.about th{width:9.5rem;color:var(--pink);font-weight:600;background:#12122a}
+
+.term{background:#000;border:2px solid var(--green);padding:.75rem;font-size:.9rem}
+.term .out{max-height:15rem;overflow:auto;white-space:pre-wrap;word-break:break-word;color:var(--green)}
+.term .out .cmd{color:var(--yellow)}
+.term label{display:flex;gap:.5rem;align-items:center;margin-top:.5rem;color:var(--yellow)}
+.term input{flex:1;min-width:0;background:transparent;border:0;border-bottom:1px solid var(--green);color:var(--green);font:inherit;padding:.15rem 0}
+
+.filters{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1rem}
+.filters button{font:600 .8rem var(--mono);background:transparent;color:var(--green);border:1px solid var(--green);padding:.25rem .65rem;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--green);color:#041108}
+.filters button:hover{border-color:var(--yellow)}
+.proj{border:1px solid var(--line);padding:.75rem .9rem;margin-bottom:.75rem;background:#0a0a16}
+.proj[hidden]{display:none}
+.proj h3{font-family:var(--pixel);font-weight:400;font-size:1.5rem;color:var(--cyan);margin:0}
+.proj .role{margin:0 0 .35rem;color:var(--yellow);font-size:.82rem}
+.proj p{font-size:.92rem;margin-bottom:.4rem}
+.proj .stk{color:var(--dim);font-size:.82rem;margin:0}
+
+.certs{list-style:none;margin:0;padding:0}
+.certs li{padding:.35rem 0;border-bottom:1px dotted var(--line)}
+.certs li:last-child{border:0}
+.certs b{color:var(--text)}
+.certs span{display:block;color:var(--dim);font-size:.82rem}
+
+.find a{display:block;padding:.25rem 0;word-break:break-word}
+footer{text-align:center;color:var(--dim);font-size:.85rem;padding-top:1rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="banner">
+    <div class="stars" aria-hidden="true">★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</div>
+    <h1>~*~ Elishama Paluku ~*~</h1>
+    <div class="sub">&gt;&gt;&gt; PORTFOLIO &lt;&lt;&lt;</div>
+    <div class="stars" aria-hidden="true">★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★</div>
+  </header>
+
+  <nav class="menu" aria-label="Primary">
+    <a href="#home">[ HOME ]</a>
+    <a href="#projects">[ PROJECTS ]</a>
+    <a href="#terminal">[ TERMINAL ]</a>
+    <a href="#experience">[ EXPERIENCE ]</a>
+    <a href="#contact">[ CONTACT ]</a>
+  </nav>
+
+  <div class="layout" id="home">
+    <aside aria-label="Profile">
+      <div class="box card">
+        <div class="avatar">
+          <span aria-hidden="true">EP</span>
+          <img id="photo" src="profile.jpg" alt="Photo of Elishama Paluku" width="120" height="120">
+        </div>
+        <div class="name">Elishama Paluku</div>
+        <div class="role">CS student · DevOps</div>
+        <div class="online"><span class="dot" aria-hidden="true"></span>ONLINE NOW</div>
+      </div>
+
+      <div class="box pink">
+        <h3 class="hd">[ SKILLZ ]</h3>
+        <dl class="stack" style="margin:0">
+          <dt>Languages</dt><dd>C, Python, Java, Node.js, Go (learning)</dd>
+          <dt>Systems</dt><dd>Linux (Arch, Gentoo, Red Hat), Proxmox, Kafka</dd>
+          <dt>Data</dt><dd>PostgreSQL, MongoDB</dd>
+          <dt>Mobile / web</dt><dd>Flutter, React, TypeScript</dd>
+          <dt>Tools</dt><dd>Git, GitHub, tcpdump, Cursor, Claude Code</dd>
+        </dl>
+      </div>
+
+      <div class="box green">
+        <h3 class="hd">[ FOCUS ]</h3>
+        <div class="tags">
+          <span>DEVOPS</span><span>LINUX</span><span>KAFKA</span><span>NETWORKING</span><span>SECURITY</span><span>GO</span>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="box">
+        <h2>// WELCOME.TXT</h2>
+        <p>Hi, I'm Elishama. I'm a third-year Computer Science student in Nairobi who works on backend systems, DevOps and the network layer, and builds a security lab at home to learn how things break.</p>
+        <p>At Celebrating, a startup incubated at C4DLab, I was a DevOps engineer and full-stack developer. This page is my project log and my CV in one place. Use the terminal below if you prefer typing to scrolling.</p>
+      </div>
+
+      <div class="box pink">
+        <h2>LATEST ACTIVITY</h2>
+        <ul class="feed">
+          <li><span class="badge work">WORK</span><span>Set up Kafka in KRaft mode on Arch Linux for Celebrating<span class="meta">Celebrating · messaging</span></span></li>
+          <li><span class="badge work">WORK</span><span>Worked on the HLS/CMAF segment strategy for short-form video<span class="meta">Celebrating · streaming</span></span></li>
+          <li><span class="badge proj">PROJECT</span><span>Hand-coded RPC stubs in C and captured the wire protocol with tcpdump<span class="meta">University · networking</span></span></li>
+          <li><span class="badge proj">PROJECT</span><span>Wrote a 39-page SRS for KipaAPI against CBK, DPA 2019 and FAPI 2.0<span class="meta">Hackathon · open banking</span></span></li>
+          <li><span class="badge">HOMELAB</span><span>Recovered an Arch system from a 100%-full btrfs disk caused by snapshots<span class="meta">Home lab · Linux</span></span></li>
+        </ul>
+      </div>
+
+      <div class="box green">
+        <h2>ABOUT.EXE <small>— who is Elishama?</small></h2>
+        <table class="about">
+          <tbody>
+            <tr><th scope="row">HANDLE</th><td>Elishama Paluku (Shammah)</td></tr>
+            <tr><th scope="row">LOCATION</th><td>Nairobi, Kenya</td></tr>
+            <tr><th scope="row">STATUS</th><td>BSc Computer Science, University of Nairobi, year 3</td></tr>
+            <tr><th scope="row">OS OF CHOICE</th><td>Arch Linux</td></tr>
+            <tr><th scope="row">CURRENT MISSION</th><td>Internship in DevOps, cloud, security, networking or ML</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box" id="terminal">
+        <h2>INTERACTIVE TERMINAL</h2>
+        <div class="term">
+          <div class="out" id="out" role="log" aria-live="polite">Welcome. Type 'help' to see available commands.</div>
+          <label for="cmd"><span>visitor@elishama:~$</span>
+            <input id="cmd" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Terminal command">
+          </label>
+        </div>
+      </div>
+
+      <div class="box pink" id="projects">
+        <h2>LATEST PROJECTS</h2>
+        <div class="filters" role="group" aria-label="Filter projects by area">
+          <button type="button" data-filter="all" aria-pressed="true">[ ALL ]</button>
+          <button type="button" data-filter="software" aria-pressed="false">[ SOFTWARE ]</button>
+          <button type="button" data-filter="cloud" aria-pressed="false">[ CLOUD ]</button>
+          <button type="button" data-filter="security" aria-pressed="false">[ SECURITY ]</button>
+          <button type="button" data-filter="ai" aria-pressed="false">[ AI+DATA ]</button>
+          <button type="button" data-filter="networking" aria-pressed="false">[ NETWORKING ]</button>
+        </div>
+
+        <article class="proj" data-tags="software cloud security ai">
+          <h3>KipaAPI</h3>
+          <p class="role">Project lead · open banking platform</p>
+          <p>Open banking aggregation platform built by a four-person team at a Claude Code hackathon. I led a 39-page spec and nine architecture diagrams anchored to CBK rules, the Data Protection Act 2019 and FAPI 2.0.</p>
+          <p class="stk">Node.js, PostgreSQL, Claude API, Railway, Vercel</p>
+        </article>
+
+        <article class="proj" data-tags="software cloud networking security">
+          <h3>Celebrating</h3>
+          <p class="role">DevOps engineer and full-stack developer · C4DLab</p>
+          <p>Celebrity social platform with a short-form video feed, wallet and M-Pesa payments. I worked on the dev environment, Kafka messaging, the HLS/CMAF streaming strategy, authentication and the Flutter and backend code.</p>
+          <p class="stk">Flutter, Spring Boot, Kafka, PostgreSQL, MongoDB, Go migration planned</p>
+        </article>
+
+        <article class="proj" data-tags="cloud security networking">
+          <h3>Homelab</h3>
+          <p class="role">Ongoing · self-hosted</p>
+          <p>Proxmox host, Arch and Gentoo workstations, and Tsurugi Linux for forensics. A red/blue team range with Wazuh, Suricata and OPNsense is in progress.</p>
+          <p class="stk">Proxmox, Linux, btrfs, i3</p>
+        </article>
+
+        <article class="proj" data-tags="networking software">
+          <h3>Networked systems in C</h3>
+          <p class="role">University group project</p>
+          <p>A voting server and a group chat server, rebuilt as iterative, forked and threaded TCP and UDP servers, then as hand-coded RPC. I checked the wire protocol with tcpdump.</p>
+          <p class="stk">C, POSIX threads, sockets, message queues, tcpdump</p>
+        </article>
+
+        <article class="proj" data-tags="ai">
+          <h3>OsteoVision AI</h3>
+          <p class="role">Medical imaging</p>
+          <p>Osteoarthritis detection from images using an EfficientNet-B3 model, served through a microservices architecture.</p>
+          <p class="stk">Python, EfficientNet-B3</p>
+        </article>
+
+        <article class="proj" data-tags="ai networking">
+          <h3>HAVA attendance system</h3>
+          <p class="role">Design and proposal</p>
+          <p>A design to stop students signing in for absent classmates. A Raspberry Pi offers offline check-in, and a one-class SVM compares scanned signatures with enrolled ones.</p>
+          <p class="stk">Raspberry Pi, one-class SVM</p>
+        </article>
+
+        <article class="proj" data-tags="ai">
+          <h3>Enterprise ETL pipeline</h3>
+          <p class="role">Data engineering</p>
+          <p>An extract-transform-load pipeline feeding an OLAP model for reporting.</p>
+          <p class="stk">Apache Hop, PostgreSQL</p>
+        </article>
+
+        <article class="proj" data-tags="software">
+          <h3>Ekelea</h3>
+          <p class="role">In progress</p>
+          <p>A social prediction platform with real-time updates, currently being redesigned with a dark, modern interface.</p>
+          <p class="stk">Node.js, Express, React, TypeScript, PostgreSQL, WebSockets, Electron</p>
+        </article>
+
+        <article class="proj" data-tags="software">
+          <h3>PyMini compiler</h3>
+          <p class="role">University group project</p>
+          <p>A mini compiler with a lexer, a table-driven LL(1) parser with error handling, a semantic analyzer and intermediate code generation.</p>
+          <p class="stk">Compiler construction</p>
+        </article>
+      </div>
+
+      <div class="box green" id="experience">
+        <h2>EXPERIENCE AND CERTIFICATES</h2>
+        <p><b>DevOps Engineer and Full-Stack Developer</b>, Celebrating (incubated at C4DLab), Nairobi. Industrial attachment.</p>
+        <ul>
+          <li>Set up Kafka (KRaft) on Arch Linux and kept the local dev environment running.</li>
+          <li>Worked on the HLS/CMAF streaming strategy and Flutter video playback.</li>
+          <li>Integrated M-Pesa payments, Firebase Auth and Google OAuth.</li>
+          <li>Wrote architecture documentation and a UI redesign spec.</li>
+        </ul>
+        <ul class="certs">
+          <li><b>Red Hat Linux</b><span>Certification</span></li>
+          <li><b>Red Hat Python</b><span>Certification</span></li>
+          <li><b>Cisco Cybersecurity Essentials</b><span>Certification</span></li>
+        </ul>
+      </div>
+
+      <div class="box find" id="contact">
+        <h2>[ F1ND ME ]</h2>
+        <a href="mailto:skyssando@gmail.com">✉ skyssando@gmail.com</a>
+        <a href="tel:+254796958435">☎ 0796 958 435</a>
+        <a href="https://github.com/shammahpaluku" rel="noopener">⌥ github.com/shammahpaluku</a>
+        <a href="https://github.com/elishamapaluku-max" rel="noopener">⌥ github.com/elishamapaluku-max</a>
+      </div>
+    </main>
+  </div>
+
+  <footer>Nairobi, Kenya · best viewed in a terminal, works fine in a browser</footer>
+</div>
+
+<script>
+(function(){
+  // Photo: fall back to initials if profile.jpg is missing
+  var photo = document.getElementById('photo');
+  if (photo) photo.addEventListener('error', function(){ photo.style.display = 'none'; });
+
+  // Project filter
+  var buttons = document.querySelectorAll('.filters button');
+  var cards = document.querySelectorAll('.proj');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter');
+      buttons.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      cards.forEach(function(c){
+        var tags = c.getAttribute('data-tags').split(' ');
+        c.hidden = !(f === 'all' || tags.indexOf(f) !== -1);
+      });
+    });
+  });
+
+  // Terminal
+  var out = document.getElementById('out');
+  var input = document.getElementById('cmd');
+  var commands = {
+    help: "Commands: whoami, skills, projects, experience, contact, clear",
+    whoami: "Elishama Paluku (Shammah)\nThird-year BSc Computer Science, University of Nairobi.\nDevOps engineer and full-stack developer at Celebrating (C4DLab). Based in Nairobi.",
+    skills: "Languages: C, Python, Java, Node.js, Go (learning)\nSystems: Linux (Arch, Gentoo, Red Hat), Proxmox, Kafka\nData: PostgreSQL, MongoDB\nWeb/mobile: Flutter, React, TypeScript",
+    projects: "KipaAPI - open banking platform (project lead)\nCelebrating - social platform, DevOps and full-stack\nHomelab - Proxmox, Arch, Gentoo, security range in progress\nNetworked systems in C - TCP/UDP servers and hand-coded RPC\nOsteoVision AI - osteoarthritis detection\nHAVA - attendance verification design\nEkelea - social prediction platform (in progress)",
+    experience: "DevOps Engineer and Full-Stack Developer, Celebrating (incubated at C4DLab), Nairobi.\nCertifications: Red Hat Linux, Red Hat Python, Cisco Cybersecurity Essentials.",
+    contact: "Email:  skyssando@gmail.com\nPhone:  0796 958 435\nGitHub: github.com/shammahpaluku\nGitHub: github.com/elishamapaluku-max"
+  };
+  function print(text, cls){
+    var line = document.createElement('div');
+    if (cls) line.className = cls;
+    line.textContent = text;
+    out.appendChild(line);
+    out.scrollTop = out.scrollHeight;
+  }
+  input.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var raw = input.value.trim();
+    input.value = '';
+    if (!raw) return;
+    print('$ ' + raw, 'cmd');
+    var key = raw.toLowerCase();
+    if (key === 'clear') { out.textContent = ''; return; }
+    if (Object.prototype.hasOwnProperty.call(commands, key)) print(commands[key]);
+    else print("Command not found: " + raw + ". Type 'help' to see available commands.");
+  });
+})();
+</script>
+</body>
+</html>
